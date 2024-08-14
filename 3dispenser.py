@@ -1,30 +1,30 @@
 import tkinter
 import customtkinter as ctk
 
-#theme & color
+# Theme & color
 ctk.set_appearance_mode("light")
 ctk.set_default_color_theme("dark-blue")
 
 class MyApp(ctk.CTk):
-        def __init__(self):
-                super().__init__()
+    def __init__(self):
+        super().__init__()
 
-                self.title('PillPal GUI')
-                self.geometry("800x480")
+        self.title('PillPal GUI')
+        self.geometry("800x480")
 
-                self.container = ctk.CTkFrame(self)
-                self.container.pack(fill="both", expand=True)
+        self.container = ctk.CTkFrame(self)
+        self.container.pack(fill="both", expand=True)
 
-                self.frames = {}
-                self.show_frame(Streak1)
+        self.frames = {}
+        self.show_frame(Streak1)
 
-        def show_frame(self, page_class):
-                frame = self.frames.get(page_class)
-                if frame is None:
-frame = page_class(parent=self.container, controller=self)
+    def show_frame(self, page_class):
+        frame = self.frames.get(page_class)
+        if frame is None:
+                        frame = page_class(parent=self.container, controller=self)
                         self.frames[page_class] = frame
 
-                frame.tkraise()
+        frame.tkraise()
 #----------------------------------------------------------STREAKFRAME
 class Streak1(ctk.CTkFrame):
         def __init__(self, parent, controller):
