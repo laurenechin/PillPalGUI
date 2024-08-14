@@ -35,7 +35,7 @@ class Streak1(ctk.CTkFrame):
                                       text = "You're on a \n [] day streak!",
                                       font = ('Sans-Serif', 40, 'bold'),
                                       fg_color = '#ffb9d5')
-                streak.place(relx=0.35, rely=0.5, anchor=tkinter.CENTER)
+                streak.pack()
 
                 button2 = ctk.CTkButton(self,
                                         text="next",
@@ -48,7 +48,16 @@ class Streak1(ctk.CTkFrame):
                                         border_color='red',
                                         hover_color='red',
                                         command=lambda:controller.show_frame(Ready2))
-                button2.place(relx=0.5, rely=0.7, anchor=tkinter.CENTER)
+                button2.place(relx=0.5, rely=0.8, anchor=tkinter.CENTER)
+                
+                hi = ctk.CTkLabel(self,
+                                  width = 800,
+                                  height = 80,
+                                  text="Hi, PillPal User",
+                                  fg_color='#ffff9c',
+                                  text_color='black',
+                                  font=('Sans-Serif', 30, 'bold'))
+                hi.place(relx=0.5, rely=0.075, anchor=tkinter.CENTER)
 
 #------------------------------------------------------------READY FRAME
 class Ready2(ctk.CTkFrame):
@@ -57,11 +66,13 @@ class Ready2(ctk.CTkFrame):
                 self.controller = controller
 
                 label1 = ctk.CTkLabel(self,
-                      text = "It's time to take your medication",
-                      text_color = 'black',
-                      font = ('Sans-Serif', 35, 'bold'),
-                      fg_color = '#ffb9d5')
-                label1.place(relx=0.5, rely=0.45, anchor=tkinter.CENTER)
+                                      width = 800,
+                                      height = 480,
+                                      text = "It's time to take your medication",
+                                      text_color = 'black',
+                                      font = ('Sans-Serif', 35, 'bold'),
+                                      fg_color = '#ffb9d5')
+                label1.pack()
 
                 button1 = ctk.CTkButton(self,
                                         text="Dispense Now",
@@ -74,7 +85,7 @@ class Ready2(ctk.CTkFrame):
                                         border_color='red',
                                         hover_color='red',
                                         command=lambda: controller.show_frame(Dispense3))
-                button1.place(relx=0.5, rely=0.65, anchor=tkinter.CENTER)
+                button1.place(relx=0.5, rely=0.7, anchor=tkinter.CENTER)
 #-------------------------------------------------------------DISPENSE FRAME
 class Dispense3(ctk.CTkFrame):
         def __init__(self,  parent, controller):
@@ -88,10 +99,10 @@ class Dispense3(ctk.CTkFrame):
                                       text_color = 'black',
                                       font = ('Sans-Serif', 40, 'bold'),
                                       fg_color = '#ffb9d5')
-                label2.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
-
+                label2.pack()
+            
                 testbutton = ctk.CTkButton(self, text="test", command=lambda: controller.show_frame(Daysleft4))
-                testbutton.pack()
+                testbutton.place(relx=0.5, rely=0.65, anchor=tkinter.CENTER)
 #-----------------------------------------------------------DAYS LEFT FRAME
 class Daysleft4(ctk.CTkFrame):
         def __init__(self, parent, controller):
@@ -105,7 +116,7 @@ class Daysleft4(ctk.CTkFrame):
                       text_color = 'black',
                       font = ('Sans-Serif', 35, 'bold'),
                       fg_color = '#ffb9d5')
-                label3.place(relx=0.5, rely=0.55, anchor=tkinter.CENTER)
+                label3.pack()
 
                 hello = ctk.CTkLabel(self,
                                 width = 800,
@@ -114,11 +125,11 @@ class Daysleft4(ctk.CTkFrame):
                                 fg_color = '#ffff9c',
                                 text_color = 'black',
                                 font = ('Sans-Serif', 30, 'bold'))
-                hello.pack(padx=10, pady=10)
+                hello.place(relx=0.5, rely=0.075, anchor=tkinter.CENTER)
 
                 testbutton1 = ctk.CTkLabel(self, text="", command=lambda: controller.show_frame(Streak1))
-                testbutton1.pack()
-
+                testbutton1.place(relx=0.5, rely=0.7, anchor=tkinter.CENTER)
+            
 app = MyApp()
 app.mainloop()
 
