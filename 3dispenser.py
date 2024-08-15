@@ -92,7 +92,7 @@ class Ready2(ctk.CTkFrame):
 #-------------------------------------------------------------DISPENSE FRAME
 class Dispense3(ctk.CTkFrame):
         def __init__(self,  parent, controller):
-                super().init__(parent)
+                super().__init__(parent)
                 self.controller = controller
 
                 label2 = ctk.CTkLabel(self,
