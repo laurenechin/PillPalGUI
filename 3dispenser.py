@@ -23,6 +23,7 @@ class MyApp(ctk.CTk):
         if frame is None:
                         frame = page_class(parent=self.container, controller=self)
                         self.frames[page_class] = frame
+                        frame.grid(row=0, column=0, sticky="nsew")
 
         frame.tkraise()
 #----------------------------------------------------------STREAKFRAME
@@ -32,13 +33,15 @@ class Streak1(ctk.CTkFrame):
                 self.controller = controller
 
                 streak = ctk.CTkLabel(self,
+                                      width=800,
+                                      height=480,
                                       text = "You're on a \n [] day streak!",
                                       font = ('Sans-Serif', 40, 'bold'),
                                       fg_color = '#ffb9d5')
                 streak.pack()
 
                 button2 = ctk.CTkButton(self,
-                                        text="next",
+                                        text="Next",
                                         text_color='black',
                                         font = ('Sans-Serif', 20, 'bold'),
                                         width=300,
@@ -47,7 +50,7 @@ class Streak1(ctk.CTkFrame):
                                         border_width=5,
                                         border_color='red',
                                         hover_color='red',
-                                        command=lambda:controller.show_frame(Ready2))
+                                        command=lambda: self.controller.show_frame(Ready2))
                 button2.place(relx=0.5, rely=0.8, anchor=tkinter.CENTER)
                 
                 hi = ctk.CTkLabel(self,
